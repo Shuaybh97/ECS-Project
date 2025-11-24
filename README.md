@@ -70,3 +70,5 @@ The project follows best practices for Terraform (modular structure), Docker (mu
     Check ECS console for running tasks.
     Access the app at your domain (e.g., https://portfolio.shuaib.dev).
 
+5. Download and save task definiton file from Amazon Elastic Container Service Task definitons in your aws account as **task-definition.json** to your app folder to enable future app deployments via CI/CD. 
+
