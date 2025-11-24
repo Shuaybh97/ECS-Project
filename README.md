@@ -73,6 +73,6 @@ The project follows best practices for Terraform (modular structure), Docker (mu
 
 
 
-5. **Local app development**:
+## Local app development:
 
-    For detailed local app development instructions, see [README](app/README.md).
+For detailed local app development instructions, see [README](app/README.md).
