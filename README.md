@@ -15,7 +15,7 @@ The project follows best practices for Terraform (modular structure), Docker (mu
 
 ## Architecture Diagram
 
-![Architecture Diagram](./assets/architecture-diagram.png)
+![Architecture Diagram](./assets/arch.png)
 *High-level architecture diagram showing the AWS ECS setup with Terraform.*
 
 ## Screenshots
