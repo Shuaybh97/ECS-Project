@@ -43,8 +43,6 @@ The portfolio will be available at `http://localhost:3000`
 ### 4. Deploy
 The entire folder is ready for:
 - **Docker deployment**: Use with your existing Dockerfile
-- **Vercel**: Push to GitHub and connect to Vercel
-- **Traditional hosting**: Build and deploy the `.next` folder
 
 ## 📝 File Descriptions
 
@@ -99,13 +97,9 @@ Edit `data/projects.ts` to add/modify projects with status badges
 ### Update Experience
 Edit `data/experience.ts` to add/modify work experience
 
-## 📦 Moving This Folder
 
-This folder is completely self-contained for the application source code. To move it:
-
-1. **Copy the entire `portfolio-app` folder** to your desired location
-2. **Replace the `app`, `components`, `data`, and `public` folders** in your project with the contents of this folder
-3. **Keep the configuration files** (`package.json`, `tsconfig.json`, etc.) at the root level
+### Update Profile Photo
+Edit `public/profile.jpg` to add your own personal photo
 
 ## ✅ Ready to Deploy
 
@@ -113,7 +107,5 @@ This structure is optimized for:
 - ✅ Local development
 - ✅ Docker containerization
 - ✅ AWS ECS deployment
-- ✅ Vercel deployment
-- ✅ Traditional static hosting
 
 Enjoy your portable portfolio! 🎉
