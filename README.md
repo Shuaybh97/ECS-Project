@@ -39,7 +39,7 @@ The project follows best practices for Terraform (modular structure), Docker (mu
    git clone https://github.com/Shuaybh97/ECS-Project.git
    cd ECS-Project
    ```
-2. Set Up Terraform:
+2. **Set Up Terraform**:
 -   Navigate to terraform/bootstrap directory.
 -   Update variables.tf with your values (e.g., gihub_repo, state bucket, AWS region).
 -   Initialize and apply
@@ -49,23 +49,24 @@ The project follows best practices for Terraform (modular structure), Docker (mu
     terraform plan 
     terraform apply 
     ```
+-   Note the outputs for remote terraform state bucket. 
+-   Configure the remote backend for the your terraform state files to the s3 bucket in ./terraform/providers.tf
 
-3. Configure GitHub Secrets/Variables:
+3.**Configure GitHub Secrets/Variables**:
 
-In your GitHub repo, add:
-- AWS_ACCOUNT_ID: Your AWS account ID.
-- PROJECT_NAME: e.g., "ecs-assignment".
-- ECS_CLUSTER_NAME: From Terraform output.
-- ECS_SERVICE_NAME: From Terraform output.
+    In your GitHub repo, add:
+    - AWS_ACCOUNT_ID: Your AWS account ID.
+    - PROJECT_NAME: e.g., "ecs-assignment".
+    - ECS_CLUSTER_NAME: From Terraform output.
+    - ECS_SERVICE_NAME: From Terraform output.
 
-Ensure OIDC is set up for the github-actions-oidc-dev role.
 
-Push Code and Trigger CI/CD:
+4. **Push Code and Trigger CI/CD and Verify Deployment**:
 
-Make changes to app and push to main.
-GitHub Actions will build the image, push to ECR, and deploy to ECS.
-Verify Deployment:
+    Make changes to app and push to main or initiate workflow using the manual trigger.
+    GitHub Actions will build the image, push to ECR, and deploy to ECS.
+    Verify Deployment:
 
-Check ECS console for running tasks.
-Access the app at your domain (e.g., https://portfolio.shuaib.dev).
+    Check ECS console for running tasks.
+    Access the app at your domain (e.g., https://portfolio.shuaib.dev).
 
