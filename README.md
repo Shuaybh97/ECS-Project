@@ -9,7 +9,7 @@ This project demonstrates the deployment of a personal portfolio website (built 
 - **CI/CD Pipeline**: GitHub Actions automates building the Docker image, pushing to Amazon ECR, and deploying to ECS on changes to the [`app`](app ) directory.
 - **Infrastructure**: Fully provisioned with Terraform, including ECS Fargate cluster, Application Load Balancer (ALB), Route53 for custom domain, and necessary IAM roles.
 - **Security**: HTTPS enforced via ALB with ACM certificates, OIDC for AWS authentication in CI/CD, and secure networking with VPC/subnets.
-- **Domain**: The app is live at `https://portfolio.shuaib.dev` (replace with your domain).
+- **Domain**: Cloudflare for domain registration and parent domain DNS, with DNS delegation for the subdomain (`portfolio.shuaib.dev`) to Route53.
 
 The project follows best practices for Terraform (modular structure), Docker (multi-stage builds, security), and CI/CD (OIDC, path-based triggers).
 
