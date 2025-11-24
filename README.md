@@ -19,18 +19,17 @@ The project follows best practices for Terraform (modular structure), Docker (mu
 *High-level architecture diagram showing the AWS ECS setup with Terraform.*
 
 ## Screenshots
-
-### Successful Deployment
-![Terraform Apply Success](./assets/terraform-apply.png)
-*Screenshot of Terraform apply output showing all resources created successfully.*
-
 ### App Running Live
+
 ![Live App Screenshot](./assets/live-app.png)
-*Screenshot of the portfolio app running at https://tm.shuaib.dev, displaying the main page.*
+*Screenshot of the portfolio app running at https://portfolio.shuaib.dev, displaying the main page.*
 
 ### CI/CD Pipeline
-![GitHub Actions Workflow](./assets/github-actions.png)
-*Screenshot of GitHub Actions workflow run, showing build, push, and deploy steps.*
+![Terraform Workflow](./assets/cicd/terraform-deployment.png)
+*Screenshot of Terraform GitHub Actions workflow run.*
+
+![App Deployment Workflow](./assets/cicd/app-deployment.png)
+*Screenshot of App deployment GitHub Actions workflow run.*
 
 ## Instructions to Reproduce the Setup
 
