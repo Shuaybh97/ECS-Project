@@ -1,49 +1,71 @@
-<div align="center">
-    <img src="./images/coderco.jpg" alt="CoderCo" width="300"/>
-</div>
+# Portfolio App Deployment on AWS ECS with Terraform
 
-# CoderCo Assignment 1 - Open Source App Hosted on ECS with Terraform 🚀
+## Overview
 
-This project is based on Amazon's Threat Composer Tool, an open source tool designed to facilitate threat modeling and improve security assessments. You can explore the tool's dashboard here: [Threat Composer Tool](https://awslabs.github.io/threat-composer/workspaces/default/dashboard)
+This project demonstrates the deployment of a personal portfolio website (built with Next.js, React, and Tailwind CSS) on Amazon ECS using Terraform for infrastructure as code. The setup includes:
 
-## Task/Assignment 📝
+- **Frontend**: A responsive portfolio app showcasing skills, projects, and contact information, built with Next.js 14 and styled with Tailwind CSS.
+- **Containerization**: The app is containerized using a multi-stage Dockerfile, optimized for production with a non-root user and minimal runtime.
+- **CI/CD Pipeline**: GitHub Actions automates building the Docker image, pushing to Amazon ECR, and deploying to ECS on changes to the [`app`](app ) directory.
+- **Infrastructure**: Fully provisioned with Terraform, including ECS Fargate cluster, Application Load Balancer (ALB), Route53 for custom domain, and necessary IAM roles.
+- **Security**: HTTPS enforced via ALB with ACM certificates, OIDC for AWS authentication in CI/CD, and secure networking with VPC/subnets.
+- **Domain**: The app is live at `https://tm.shuaib.dev` (replace with your domain).
 
-- Create your own repository and complete the task there. You may create a `app` in your repo and copy all the files in this directory into it. Or alternatively, you can use this directory as is. Your choice.
+The project follows best practices for Terraform (modular structure), Docker (multi-stage builds, security), and CI/CD (OIDC, path-based triggers).
 
-- Your task will be to create a container image for the app, push it to ECR (recommended) or DockerHub. Ideally, you should use a CI/CD pipeline to build, test, and push the container image.
+## Architecture Diagram
 
-- Deploy the app on ECS using Terraform. All the resources should be provisioned using Terraform. Use TF modules.
+![Architecture Diagram](./assets/architecture-diagram.png)
+*High-level architecture diagram showing the AWS ECS setup with Terraform.*
 
-- Make sure the app is live on `https://tm.<your-domain>` or `https://tm.labs.<your-domain>`
+## Screenshots
 
-- App must use HTTPS. Hosted on ECS. Figure out the rest. Once app is live, add screenshots to the README.md file.
+### Successful Deployment
+![Terraform Apply Success](./assets/terraform-apply.png)
+*Screenshot of Terraform apply output showing all resources created successfully.*
 
-- Add architecture diagram of how the infrastructure is setup. (Use Lucidchart or draw.io or mermaid) You are free to use any diagramming tool.
+### App Running Live
+![Live App Screenshot](./assets/live-app.png)
+*Screenshot of the portfolio app running at https://tm.shuaib.dev, displaying the main page.*
 
-## Local app setup 💻
+### CI/CD Pipeline
+![GitHub Actions Workflow](./assets/github-actions.png)
+*Screenshot of GitHub Actions workflow run, showing build, push, and deploy steps.*
 
-```bash
-yarn install
-yarn build
-yarn global add serve
-serve -s build
+## Instructions to Reproduce the Setup
 
-#yarn start
-http://localhost:3000/workspaces/default/dashboard
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Shuaybh97/ECS-Project.git
+   cd ECS-Project
+   ```
+2. Set Up Terraform:
+-   Navigate to terraform/bootstrap directory.
+-   Update variables.tf with your values (e.g., gihub_repo, state bucket, AWS region).
+-   Initialize and apply
 
-## or
-yarn global add serve
-serve -s build
-```
+    ```bash
+    terraform init
+    terraform plan 
+    terraform apply 
+    ```
 
-## Useful links 🔗
+3. Configure GitHub Secrets/Variables:
 
-- [Terraform AWS Registry](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [Terraform AWS ECS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)
-- [Terraform Docs](https://www.terraform.io/docs/index.html)
-- [ECS Docs](https://docs.aws.amazon.com/ecs/latest/userguide/what-is-ecs.html)
+In your GitHub repo, add:
+- AWS_ACCOUNT_ID: Your AWS account ID.
+- PROJECT_NAME: e.g., "ecs-assignment".
+- ECS_CLUSTER_NAME: From Terraform output.
+- ECS_SERVICE_NAME: From Terraform output.
 
-## Advice & Tips �
+Ensure OIDC is set up for the github-actions-oidc-dev role.
 
-- This is just a simple app, you may use another app if you'd like. 
-- Use best practices for your Terraform code. Use best practices for your container image. Use best practices for your CI/CD pipeline.
+Push Code and Trigger CI/CD:
+
+Make changes to app and push to main.
+GitHub Actions will build the image, push to ECR, and deploy to ECS.
+Verify Deployment:
+
+Check ECS console for running tasks.
+Access the app at your domain (e.g., https://portfolio.shuaib.dev).
+
