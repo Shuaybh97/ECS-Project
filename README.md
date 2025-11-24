@@ -71,3 +71,8 @@ The project follows best practices for Terraform (modular structure), Docker (mu
 
 5. Download and save task definiton file from Amazon Elastic Container Service Task definitons in your aws account as **task-definition.json** to your app folder to enable future app deployments via CI/CD. 
 
+
+
+5. **Local app development**:
+
+    For detailed local app development instructions, see [README](app/README.md).
