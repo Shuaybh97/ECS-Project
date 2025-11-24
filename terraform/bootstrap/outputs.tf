@@ -4,5 +4,5 @@ output "github-oidc-provider-arn" {
 }
 output "state_bucket_name" {
   description = "Name of the S3 bucket for Terraform state"
-  value       = aws_s3_bucket.terraform_state.bucket
+  value       = aws_s3_bucket.tf_state.bucket
 }
