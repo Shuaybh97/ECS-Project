@@ -52,13 +52,13 @@ The project follows best practices for Terraform (modular structure), Docker (mu
 -   Note the outputs for remote terraform state bucket. 
 -   Configure the remote backend for the your terraform state files to the s3 bucket in ./terraform/providers.tf
 
-3.**Configure GitHub Secrets/Variables**:
+3. **Configure GitHub Secrets/Variables**:
 
     In your GitHub repo, add:
-        AWS_ACCOUNT_ID: Your AWS account ID.
-        PROJECT_NAME: e.g., "ecs-assignment".
-        ECS_CLUSTER_NAME: From Terraform output.
-        ECS_SERVICE_NAME: From Terraform output.
+    - AWS_ACCOUNT_ID: Your AWS account ID.
+    - AWS_REGION: Your deployment region
+    - ECS_CLUSTER_NAME: From Terraform output.
+    - ECS_SERVICE_NAME: From Terraform output.
 
 
 4. **Push Code and Trigger CI/CD and Verify Deployment**:
