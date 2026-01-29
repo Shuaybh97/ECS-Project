@@ -23,7 +23,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Install only dumb-init for signal handling
-RUN apk add --no-cache dumb-init && rm -rf 
+RUN apk add --no-cache dumb-init 
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
